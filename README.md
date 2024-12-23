@@ -17,11 +17,12 @@ This repository contains a Docker setup to configure iptables rules for network 
    git clone https://gitlab.com/your-username/docker-restrict-network.git
    cd docker-restrict-network
    
-2. Modify the docker-compose.yml and iptables-setup.sh files if necessary, depending on your network configuration and container setup.
+2. Modify the docker-compose.yml and iptables-setup.sh files if necessary, depending on your network configuration and container setup.3.
 
 3. Build the Docker image (if needed): If you're using a custom image for iptables-setup, ensure it's built before running the docker-compose commands.
 ```bash
 docker build -t harshadineth/iptables-image .
+
 
 4. Start the services: Run the following command to bring up the services defined in the docker-compose.yml:
 ```bash

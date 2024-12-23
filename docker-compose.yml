@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  iptables-setup:
+    image: harshadineth/iptables-image
+    container_name: iptables-setup
+    tty: true
+    privileged: true 
+    network_mode: "host"
+    entrypoint: ["/bin/bash", "-c", "./iptables-setup.sh"] 
+    volumes:
+      - ./iptables-setup.sh:/iptables-setup.sh:ro 
+    restart: "no"
+
+  test-container:
+    image: ubuntu:latest
+    container_name: test-container
+    tty: true
+    environment:
+      - http_proxy=http://192.168.1.10:3128
+    networks:
+      custom-network:
+        ipv4_address: 172.20.0.100
+
+networks:
+  custom-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24

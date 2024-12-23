@@ -21,14 +21,14 @@ This repository contains a Docker setup to configure iptables rules for network 
 
 3. Build the Docker image (if needed): If you're using a custom image for iptables-setup, ensure it's built before running the docker-compose commands.
 ```bash
-*docker build -t harshadineth/iptables-image .*
+docker build -t harshadineth/iptables-image .
 
 4. Start the services: Run the following command to bring up the services defined in the docker-compose.yml:
 ```bash
-**docker-compose up -d**
+docker-compose up -d
 
 5.Verify the iptables rules: The iptables-setup container will run the iptables-setup.sh script to apply the iptables rules on the host. You can check the applied rules by running:
 ```bash
-**sudo iptables -L -n -v**
+sudo iptables -L -n -v
 
    
